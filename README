@@ -1,0 +1,3 @@
+Originally my partner (krystoff aka Chris Larson) and I thought we could write a class override that would use our updated "empty?" method if it was called with an argument value (any value) and call the original "empty?" method if it was called without the argument.  this would be "safe" because it would not change functionality for current users of empty, but still allow us to offer extended functionality to those users that wanted it.
+
+we ran into trouble because once you monkey patch the original empty? method there's no way to call the original method, even if you preface it with the class (e.g. String::emtpy?). so we got some help from some nearby classmates and added in a method alias at the beginning of our class to get the functionality we wanted.

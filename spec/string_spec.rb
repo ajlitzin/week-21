@@ -1,29 +1,68 @@
+require 'spec_helper'
 
 describe String do
+
+# this tests that original empty? still works
   describe "#empty?" do
-    
-    context "when the string contains no characters" do
+    context "if string contains whitespace" do
+      let(:subject) { "   supercool  " }
+      it "should return false" do
+        subject.should_not be_empty
+      end
+    end
+
+    context "if string does not contain whitespace" do
+      let(:subject) { "supercool"}
+      it "should return false" do
+        subject.should_not be_empty
+      end
+    end
+
+    context "if string is only whitespace" do
+      let(:subject) { "     "}
+      it "should return false" do
+        subject.should_not be_empty
+      end
+    end
+
+    context "if string is empty" do
+      let(:subject) {""}
       it "should return true" do
         subject.should be_empty
       end
     end
-    
-    context "when the string contains whitespace characters" do
-      let(:subject) { " \n  " }
-      
+  end
+
+# this tests that original empty? still works
+  describe "#empty?" do
+    context "if string contains whitespace" do
+      let(:subject) { "   supercool  " }
       it "should return false" do
-        subject.should_not be_empty
+        subject.should_not be_empty("fakearg")
       end
     end
-    
-    context "when it contains any characters" do
 
-      let(:subject) { " String String Badda Bing! " }
-
+    context "if string does not contain whitespace" do
+      let(:subject) { "supercool"}
       it "should return false" do
-        subject.should_not be_empty
+        subject.should_not be_empty("fakearg")
       end
     end
-    
+
+    context "if string is only whitespace" do
+      let(:subject) { "     "}
+      it "should return true" do
+        subject.should be_empty("fakearg")
+      end
+    end
+
+    context "if string is empty" do
+      let(:subject) { ""}
+      it "should return true" do
+        subject.should be_empty("fakearg")
+      end
+    end
+
+
   end
 end

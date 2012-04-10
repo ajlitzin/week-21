@@ -1,4 +1,3 @@
-
 task :default => :present
 
 task :spec do
@@ -8,3 +7,4 @@ end
 task :present do
   system "showoff serve presentation"
 end
+
